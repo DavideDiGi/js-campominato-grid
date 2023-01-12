@@ -3,35 +3,34 @@ const gridContainer = document.getElementById('grid-container');
 const myBtn = document.getElementById('my-btn');
 
 myBtn.addEventListener('click',
-   function () { 
+
+   function () {
+
     gridContainer.style.display = 'flex';
-   }
-);
-console.log(this);
 
-for (let i = 0; i < 100; i++) {
+    console.log('click!');
 
-    const newCell = document.createElement('div');
-    newCell.classList.add('cell');
-    newCell.innerHTML = ('1');
-    newCell.addEventListener('click',
-    
-        function () {
-            
-            console.log(this);
-            console.log(this.classList);
+    gridContainer.innerHTML = '';
 
-            if(this.classList.contains('clicked')){
-                this.classList.remove('clicked');
-            }
-            else{
+    for (let i = 1; i <= 100; i++) {
+
+        const newCell = document.createElement('div');
+        newCell.classList.add('cell');
+        newCell.innerHTML = (i);
+        newCell.addEventListener('click',
+        
+            function () {
+
+                console.log(this.innerText);
                 this.classList.add('clicked');
-            }
 
-        }
-    
-    );
+                }
+
+        );
 
     gridContainer.append(newCell);
 
+
 }
+   }
+);
